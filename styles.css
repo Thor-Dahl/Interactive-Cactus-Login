@@ -71,6 +71,10 @@ span {
     color: #2D2F22;
 }
 
+.login-container button:hover {
+    background-color: #bbd36d;
+}
+
 .login-inputs input.red {
     border: 4px solid #be7d7b;
 }
@@ -103,13 +107,13 @@ span {
 
 .cactus {
     position: absolute;
-    width: 330px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     bottom: 50%;
     left: 50%;
     transform: translate(-50%, +37%);
     background-color: #9fb45b;
-    clip-path: circle(30%);
+    border-radius: 100%;
     z-index: -1;
 
     transition: all ease 1s;
@@ -122,7 +126,7 @@ span {
     background-color: #2D2F22;
     border-radius: 49%;
     top: 40%;
-    left: 35%;
+    left: 30%;
     z-index: 2;
 }
 
@@ -133,7 +137,7 @@ span {
     background-color: #2D2F22;
     border-radius: 49%;
     top: 40%;
-    right: 35%;
+    right: 30%;
     z-index: 2;
 }
 
@@ -156,9 +160,55 @@ span {
 
 .cactus.move-down {
     width: 100px;
-    transform: translate(-50%, +70%);
+    height: 100px;
+    transform: translate(-50%, 90%);
 }
 
 .mouth.move-up {
     transform: translate(-50%, -200%);
+}
+
+/* =======================
+    FLOWER
+   ======================= */
+.flower-head {
+    position: absolute;
+    top: -10px;
+    left: 70%;
+    width: 30px;
+    height: 30px;
+    transform: translateX(-50%);
+    z-index: 100;
+    background-color: rgb(194, 102, 75);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all ease 1s;
+}
+
+.flower-head:nth-child(1) {
+    top: 0;
+    left: 50%;
+} 
+
+.flower-petal {
+    position: absolute;
+    top: -117%;
+    left: -10%;
+    width: 37px;
+    height: 50px;
+    transform: translateX(-50%);
+    z-index: 3;
+    rotate: 74deg;
+    transform-origin: bottom center;
+    background-color: #e79ac9;
+    border-radius: 0% 90% 0% 90%;
+}
+.flower-petal:nth-child(2) { rotate: 72deg; }
+.flower-petal:nth-child(3) { rotate: 144deg; }
+.flower-petal:nth-child(4) { rotate: 216deg; }
+.flower-petal:nth-child(5) { rotate: 288deg; }
+.flower-petal:nth-child(6) { rotate: 360deg; }
+
+.flower-head.show {
+    opacity: 1;
 }

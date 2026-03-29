@@ -1,10 +1,13 @@
+const cactus = $('.cactus');
+const mouth = $('.mouth');
+const flower = $('.flower-head');
+
 const form = $('#login-form');
-const cactus = $('.cactus')
-const mouth = $('.mouth')
+const usernameField = $('#username');
+const passwordField = $('#password');
 
 form.on('change', function(e) {
-    const usernameField = $('#username');
-    const passwordField = $('#password');
+    
 
     const field = $(e.target);
     const value = field.val().trim();
@@ -22,6 +25,7 @@ form.on('change', function(e) {
     //overall form
     cactus.removeClass('move-up move-down');
     mouth.removeClass('move-up');
+    flower.removeClass('show');
 
     if (usernameField.val() === 'correct' && passwordField.val() === 'correct') {  //both correct
         cactus.addClass('move-up');
@@ -29,5 +33,16 @@ form.on('change', function(e) {
     }
     else if (usernameField.val() !== 'correct' && passwordField.val() !== 'correct') { // both wrong
         cactus.addClass('move-down')
+    }
+})
+
+form.on('submit', function(e) {
+    e.preventDefault();
+    flower.removeClass('show');
+    if (usernameField.val() === 'correct' && passwordField.val() === 'correct') {  //both correct
+        flower.addClass('show');
+    }
+    else if (usernameField.val() !== 'correct' && passwordField.val() !== 'correct') { // both wrong
+        
     }
 })
