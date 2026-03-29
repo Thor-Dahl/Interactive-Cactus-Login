@@ -45,4 +45,21 @@ form.on('submit', function(e) {
     else if (usernameField.val() !== 'correct' && passwordField.val() !== 'correct') { // both wrong
         
     }
+    setTimeout(() => {
+        spawnBurst(240, 460);
+    }, 200)
 })
+
+function spawnBurst(x, y) {
+    for (let i = 0; i < 8; i++) {
+        const p = document.createElement('div');
+        p.classList.add('particle');
+        p.style.left = x + 'px';
+        p.style.top = y + 'px';
+        p.style.backgroundColor = '#e79ac9';
+        p.style
+        p.style.setProperty('--angle', (i * 44) + 'deg');
+        document.body.appendChild(p);
+        p.addEventListener('animationend', () => p.remove());
+    }
+}
