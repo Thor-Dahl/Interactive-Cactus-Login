@@ -46,18 +46,18 @@ form.on('submit', function(e) {
         
     }
     setTimeout(() => {
-        spawnBurst(240, 460);
+        spawnBurst(flower[0]);
     }, 200)
 })
 
-function spawnBurst(x, y) {
+function spawnBurst(element) {
+    const rect = element.getBoundingClientRect();
     for (let i = 0; i < 8; i++) {
         const p = document.createElement('div');
         p.classList.add('particle');
-        p.style.left = x + 'px';
-        p.style.top = y + 'px';
+        p.style.left = rect.left + 'px';
+        p.style.top = rect.top + 'px';
         p.style.backgroundColor = '#e79ac9';
-        p.style
         p.style.setProperty('--angle', (i * 44) + 'deg');
         document.body.appendChild(p);
         p.addEventListener('animationend', () => p.remove());
