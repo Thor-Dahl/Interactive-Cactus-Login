@@ -41,13 +41,10 @@ form.on('submit', function(e) {
     flower.removeClass('show');
     if (usernameField.val() === 'correct' && passwordField.val() === 'correct') {  //both correct
         flower.addClass('show');
+        setTimeout(() => {
+            spawnBurst(flower[0]);
+        }, 200)
     }
-    else if (usernameField.val() !== 'correct' && passwordField.val() !== 'correct') { // both wrong
-        
-    }
-    setTimeout(() => {
-        spawnBurst(flower[0]);
-    }, 200)
 })
 
 function spawnBurst(element) {
